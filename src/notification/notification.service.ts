@@ -24,7 +24,7 @@ export class NotificationService {
       from: process.env.EMAIL_USERNAME,
       to,
       subject,
-      text,
+      html: text,
     };
     try {
       await this.transporter.sendMail(mailOptions);
