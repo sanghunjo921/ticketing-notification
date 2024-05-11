@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./src:/noti/src
+      - ./.env:/noti/.env
     expose:
       - '3001'
     networks:
