@@ -1,3 +1,4 @@
+import { IsOptional } from 'class-validator';
 import { Membership, Role } from 'src/type/user.enum';
 import {
   Column,
@@ -27,8 +28,12 @@ export class User {
   })
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
+  @IsOptional()
   password: string;
+
+  @Column({ default: 'none' })
+  provider: string;
 
   @Column({ type: 'enum', enum: Role })
   role: Role = Role.CONSUMER;
